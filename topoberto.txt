@@ -277,10 +277,11 @@ iptables -A FORWARD -d 10.151.71.48/29 -i eth0 -p tcp --dport 22 -j DROP
 
 no 3 di malang mojo , icmp tidak akan membantu melimit akses. membatasi menjadi 3 limit, jika lebih di drop
 tujuan ke mojo / malang di 4 uml berbeda
-iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 -j DROP
+#iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 -j DROP
+iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
 
 no 4 di smua router memberikan akses sesuai jam dan hari, di malang
-iptables -A INPUT -s 192.168.1.0/24 -m time --timestart 07:00 --timestop 17:00 --days Mon,Tue,Wed,Thu,Fri -j ACCEPT
+iptables -A INPUT -s 192.168.1.0/24 -m time --timestart 07:00 --timestop 17:00 --weekdays Mon,Tue,Wed,Thu,Fri -j ACCEPT
 iptables -A INPUT -s 192.168.1.0/24 -j REJECT
 
 no 5 smua ruter menolak akses sesuai jam, di malang
@@ -288,11 +289,11 @@ iptables -A INPUT -s 192.168.2.0/24 -m time --timestart 07:01 --timestop 16:59 -
 
 no 6 -> round robbin load balancing -> smua router madiun probo , di surabaya
 
-iptables -A PREROUTING -t nat -p tcp -d 10.151.77.26 --dport 80 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 192.168.0.10:80
-iptables -A PREROUTING -t nat -p tcp -d 10.151.77.26 --dport 80 -j DNAT --to-destination 192.168.0.11:80
+iptables -A PREROUTING -t nat -p tcp -d 10.151.71.50 --dport 80 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 192.168.0.10:80
+iptables -A PREROUTING -t nat -p tcp -d 10.151.71.50 --dport 80 -j DNAT --to-destination 192.168.0.11:80
 
-iptables -t nat -A POSTROUTING -p tcp -d 192.168.0.10 --dport 80 -j SNAT --to-source 10.151.77.26:80
-iptables -t nat -A POSTROUTING -p tcp -d 192.168.0.11 --dport 80 -j SNAT --to-source 10.151.77.26:80
+iptables -t nat -A POSTROUTING -p tcp -d 192.168.0.10 --dport 80 -j SNAT --to-source 10.151.71.50:80
+iptables -t nat -A POSTROUTING -p tcp -d 192.168.0.11 --dport 80 -j SNAT --to-source 10.151.71.50:80
 
 no 7 di smua router , -n -> new chain. jika ada I/O tuh di log. bebas
 iptables -N LOGGING
