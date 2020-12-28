@@ -405,3 +405,6 @@ iptables -A LOGGING -j DROP
 2. Pindah directory ke ```/var/log/messages```
 
 ![7](ss/7.JPG)  
+---
+Kendala yang dialami:  
+Mengalami error pada router Kediri yang mengarah ke Gresik sehingga untuk no 5 tidak dapat dilaksanakan
