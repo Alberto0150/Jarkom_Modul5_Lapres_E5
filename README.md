@@ -7,11 +7,10 @@ Lapres Modul 5 Jarkom
 ### Soal A
 
 Membuat topologi jaringan sesuai dengan rancangan yang diberikan pada gambar di atas. Sekalian membuat ```bye.sh```nya.
+Topologi.sh
 
-- Topologi.sh
-
-  ```
-  # Switch
+```
+# Switch
 uml_switch -unix switch0 > /dev/null < /dev/null & #A0
 uml_switch -unix switch1 > /dev/null < /dev/null & #A1
 uml_switch -unix switch2 > /dev/null < /dev/null & #A2
@@ -33,7 +32,7 @@ xterm -T MOJOKERTO -e linux ubd0=MOJOKERTO,jarkom umid=MOJOKERTO eth0=daemon,,,s
 # Klien 1
 xterm -T GRESIK -e linux ubd0=GRESIK,jarkom umid=GRESIK eth0=daemon,,,switch4 mem=96M &
 xterm -T SIDOARJO -e linux ubd0=SIDOARJO,jarkom umid=SIDOARJO eth0=daemon,,,switch5 mem=96M &
-  ```
+```
   
 - bye.sh
 
