@@ -34,9 +34,9 @@ xterm -T GRESIK -e linux ubd0=GRESIK,jarkom umid=GRESIK eth0=daemon,,,switch4 me
 xterm -T SIDOARJO -e linux ubd0=SIDOARJO,jarkom umid=SIDOARJO eth0=daemon,,,switch5 mem=96M &
 ```
   
-- bye.sh
+bye.sh
 
-  ```
+```
 uml_mconsole SURABAYA halt
 uml_mconsole MALANG halt
 uml_mconsole MOJOKERTO halt
@@ -47,184 +47,184 @@ uml_mconsole KEDIRI halt
 uml_mconsole PROBOLINGGO halt
 uml_mconsole MADIUN halt
 
-  ```
+```
 
 ### Soal B
 
 Membuat subnetting dengan teknik **CIDR** atau **VLSM**. Kelompok kami menggunakan teknik **VLSM**.  
 
 - Pembagian subnet dengan teknik VLSM  
-  
-  ![subnet](ss/vlsm.png)
-  
+
+![subnet](ss/vlsm.png)
+
 - IP Tree
 
-  ![route](ss/route.png)  
-  
+![route](ss/route.png)  
+
 - Setting **Interfaces** tiap UML
 
-  *UML Surabaya (Router)*
+*UML Surabaya (Router)*
 
-  ```
-    auto lo
-    iface lo inet loopback
+```
+auto lo
+iface lo inet loopback
 
-    auto eth0 
-    iface eth0 inet static
-    address 10.151.70.26
-    netmask 255.255.255.252
-    gateway 10.151.70.25
-
-
-    auto eth1
-    iface eth1 inet static
-    address 192.168.0.5
-    netmask 255.255.255.252
+auto eth0 
+iface eth0 inet static
+address 10.151.70.26
+netmask 255.255.255.252
+gateway 10.151.70.25
 
 
-    auto eth2
-    iface eth2 inet static
-    address 192.168.0.1
-    netmask 255.255.255.252
-  ```
+auto eth1
+iface eth1 inet static
+address 192.168.0.5
+netmask 255.255.255.252
 
-  *UML Kediri (Router)*
 
-  ```
-    auto lo
-    iface lo inet loopback
+auto eth2
+iface eth2 inet static
+address 192.168.0.1
+netmask 255.255.255.252
+```
 
-    auto eth0
-    iface eth0 inet static
-    address 192.168.0.6
-    netmask 255.255.255.252
-    gateway 192.168.0.5
+*UML Kediri (Router)*
 
-    auto eth1
-    iface eth1 inet static
-    address 192.168.0.9
-    netmask 255.255.255.248
+```
+auto lo
+iface lo inet loopback
 
-    auto eth2
-    iface eth2 inet static
-    address 192.168.2.1
-    netmask 255.255.255.0
-  ```
+auto eth0
+iface eth0 inet static
+address 192.168.0.6
+netmask 255.255.255.252
+gateway 192.168.0.5
 
-  *UML Batu (Router)*
+auto eth1
+iface eth1 inet static
+address 192.168.0.9
+netmask 255.255.255.248
 
-  ```
-    auto lo
-    iface lo inet loopback
+auto eth2
+iface eth2 inet static
+address 192.168.2.1
+netmask 255.255.255.0
+```
 
-    auto eth0
-    iface eth0 inet static
-    address 192.168.0.2
-    netmask 255.255.255.252
-    gateway 192.168.0.1
+*UML Batu (Router)*
 
-    auto eth1
-    iface eth1 inet static
-    address 10.151.71.49
-    netmask 255.255.255.248
+```
+auto lo
+iface lo inet loopback
 
-    auto eth2
-    iface eth2 inet static
-    address 192.168.1.1
-    netmask 255.255.252.0
-  ```
+auto eth0
+iface eth0 inet static
+address 192.168.0.2
+netmask 255.255.255.252
+gateway 192.168.0.1
 
-  *UML Sidoarjo (Client)*
+auto eth1
+iface eth1 inet static
+address 10.151.71.49
+netmask 255.255.255.248
 
-  ```
-    auto lo
-    iface lo inet loopback
+auto eth2
+iface eth2 inet static
+address 192.168.1.1
+netmask 255.255.252.0
+```
 
-    auto eth0
-    iface eth0 inet dhcp
-    address 192.168.1.2
-    netmask 255.255.255.0
-    gateway 192.168.1.1
-  ```
+*UML Sidoarjo (Client)*
 
-  *UML Gresik (Client)*
+```
+auto lo
+iface lo inet loopback
 
-  ```
-    auto lo
-    iface lo inet loopback
+auto eth0
+iface eth0 inet dhcp
+address 192.168.1.2
+netmask 255.255.255.0
+gateway 192.168.1.1
+```
 
-    auto eth0
-    iface eth0 inet dhcp
-    address 192.168.2.2
-    netmask 255.255.255.0
-    gateway 192.168.2.1
-  ```
+*UML Gresik (Client)*
 
-  *UML Probolinggo (Server)*
+```
+auto lo
+iface lo inet loopback
 
-  ```
-    auto lo
-    iface lo inet loopback
+auto eth0
+iface eth0 inet dhcp
+address 192.168.2.2
+netmask 255.255.255.0
+gateway 192.168.2.1
+```
 
-    auto eth0
-    iface eth0 inet static
-    address 192.168.0.10
-    netmask 255.255.255.248
-    gateway 192.168.0.9
-  ```
+*UML Probolinggo (Server)*
 
-  *UML Mojokerto (Server)*
+```
+auto lo
+iface lo inet loopback
 
-  ```
-    auto lo
-    iface lo inet loopback
+auto eth0
+iface eth0 inet static
+address 192.168.0.10
+netmask 255.255.255.248
+gateway 192.168.0.9
+```
 
-    auto eth0
-    iface eth0 inet static
-    address 10.151.71.51
-    netmask 255.255.255.248
-    gateway 10.151.71.49
-  ```
+*UML Mojokerto (Server)*
 
-  *UML Malang (Server)*
+```
+auto lo
+iface lo inet loopback
 
-  ```
-    auto lo
-    iface lo inet loopback
+auto eth0
+iface eth0 inet static
+address 10.151.71.51
+netmask 255.255.255.248
+gateway 10.151.71.49
+```
 
-    auto eth0
-    iface eth0 inet static
-    address 10.151.71.50
-    netmask 255.255.255.248
-    gateway 10.151.71.49
-  ```
+*UML Malang (Server)*
 
-  *UML Madiun (Server)*
+```
+auto lo
+iface lo inet loopback
 
-  ```
-    auto lo
-    iface lo inet loopback
+auto eth0
+iface eth0 inet static
+address 10.151.71.50
+netmask 255.255.255.248
+gateway 10.151.71.49
+```
 
-    auto eth0
-    iface eth0 inet static
-    address 192.168.0.11
-    netmask 255.255.255.248
-    gateway 192.168.0.9
-  ```
+*UML Madiun (Server)*
+
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 192.168.0.11
+netmask 255.255.255.248
+gateway 192.168.0.9
+```
 
 ### Soal C
 
 Melakukan routing agar setiap perangkat pada jaringan tersebut dapat terhubung.
 
 - Routing pada UML Surabaya
-  
-  ```
-    ip route add 10.151.71.48/29 via 192.168.0.1
-    ip route add 192.168.1.0/24 via 192.168.0.1
-    ip route add 192.168.2.0/24 via 192.168.0.5
-    ip route add 192.168.0.8/29 via 192.168.0.5
-  ```
-  
+
+```
+ip route add 10.151.71.48/29 via 192.168.0.1
+ip route add 192.168.1.0/24 via 192.168.0.1
+ip route add 192.168.2.0/24 via 192.168.0.5
+ip route add 192.168.0.8/29 via 192.168.0.5
+```
+
 ### Soal D
 
 Memberikan ip pada subnet SIDOARJO dan GRESIK secara dinamis menggunakan bantuan DHCP SERVER (Selain subnet tersebut menggunakan ip static). Kemudian setting DHCP RELAY pada router yang menghubungkannya.
