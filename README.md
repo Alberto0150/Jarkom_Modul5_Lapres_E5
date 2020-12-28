@@ -367,41 +367,41 @@ SURABAYA disetting sehingga setiap request dari client yang mengakses DNS Server
 
 - Pada *UML Surabaya* :
 
-  ```
+```
 iptables -A PREROUTING -t nat -p tcp -d 10.151.77.26 --dport 80 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 192.168.0.10:80
 iptables -A PREROUTING -t nat -p tcp -d 10.151.77.26 --dport 80 -j DNAT --to-destination 192.168.0.11:80
 
 iptables -t nat -A POSTROUTING -p tcp -d 192.168.0.10 --dport 80 -j SNAT --to-source 10.151.77.26:80
 iptables -t nat -A POSTROUTING -p tcp -d 192.168.0.11 --dport 80 -j SNAT --to-source 10.151.77.26:80
 
-  ```
+```
 
 - Testing
-  
-  1. Install netcat pada *UML Malang*, *UML Probolinggo*, *UML Madiun*, *UML Surabaya*, dan *UML Gresik (Client)*  : ```apt-get install netcat```
-  2. Pada UML Madiun ketikkan : ```nc -l -p 80```
-  3. Pada UML Probolinggo ketikkan : ```nc -l -p 80```
-  4. Pada UML Client (Gresik) ketikkan : ```nc ipMalang 80```
-  5. Ketik bebas apapun di UML Gresik nanti muncul di UML Madiun/ Probolinggo  
-  ![6](ss/6.JPG)  
-  
+
+1. Install netcat pada *UML Malang*, *UML Probolinggo*, *UML Madiun*, *UML Surabaya*, dan *UML Gresik (Client)*  : ```apt-get install netcat```
+2. Pada UML Madiun ketikkan : ```nc -l -p 80```
+3. Pada UML Probolinggo ketikkan : ```nc -l -p 80```
+4. Pada UML Client (Gresik) ketikkan : ```nc ipMalang 80```
+5. Ketik bebas apapun di UML Gresik nanti muncul di UML Madiun/ Probolinggo  
+![6](ss/6.JPG)  
+
 ### Nomor 7
 
 Semua paket didrop oleh firewall (dalam topologi) tercatat dalam log pada setiap UML yang memiliki aturan drop.
 
 - Pada *UML Surabaya* tambahkan :
 
-  ```
-    iptables -N LOGGING
-    iptables -A INPUT -j LOGGING
-    iptables -A OUTPUT -j LOGGING
-    iptables -A LOGGING -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
-    iptables -A LOGGING -j DROP
-  ```
-  
+```
+iptables -N LOGGING
+iptables -A INPUT -j LOGGING
+iptables -A OUTPUT -j LOGGING
+iptables -A LOGGING -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
+iptables -A LOGGING -j DROP
+```
+
 - Testing
 
-  1. Jalankan iptablesnya
-  2. Pindah directory ke ```/var/log/messages```
+1. Jalankan iptablesnya
+2. Pindah directory ke ```/var/log/messages```
 
 ![7](ss/7.JPG)  
