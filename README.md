@@ -316,7 +316,7 @@ Membatasi DHCP dan DNS server hanya boleh menerima maksimal 3 koneksi ICMP secar
 - Pada *UML Mojokerto* dan *UML Malang* tambahkan perintah :
 
   ```
-  iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 -j DROP
+  iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
   ```
 
 - Testing :
