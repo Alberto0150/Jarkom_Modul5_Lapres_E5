@@ -340,8 +340,8 @@ iptables -A INPUT -s 192.168.1.0/24 -j REJECT
 
 - Testing pada *UML Gresik* dan *UML Malang* :
 
-  1. Ubah tanggal dan jam hari ini dengan perintah ```date -s '2020-12-27 :::'```
-  2. Cek tanggal sudah benar atau belum dengan perintah ```date```
+  1. Cek tanggal sudah benar atau belum dengan perintah ```date```
+  2. Jika masih belum sesuai testcase, ubah tanggal dan jam hari ini dengan perintah ```date -s '2020-12-27 :::'```
   
   ![4](ss/4.JPG)  
   
@@ -357,8 +357,8 @@ iptables -A INPUT -s 192.168.2.0/24 -m time --timestart 07:01 --timestop 16:59 -
 
 - Testing pada *UML Gresik* dan *UML Malang* :
 
-  1. Ubah tanggal dan jam hari ini dengan perintah ```date -s "2020-12-28 16:10:10"```
-  2. Cek tanggal sudah benar atau belum dengan perintah ```date```
+  1. Cek tanggal sudah benar atau belum dengan perintah ```date```
+  2. Jika masih dalam range, ubah tanggal dan jam hari ini dengan perintah ```date -s "2020-12-28 16:10:10"```
   
 ![5.1](ss/5.1.JPG)  
 ![5.2](ss/5.2.JPG)  
