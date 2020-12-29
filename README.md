@@ -360,7 +360,7 @@ iptables -A INPUT -s 192.168.2.0/24 -m time --timestart 07:01 --timestop 16:59 -
   2. Cek tanggal sudah benar atau belum dengan perintah ```date```
   
 ![5.1](ss/5.1.JPG)  
-![5.1](ss/5.1.JPG)  
+![5.2](ss/5.2.JPG)  
 
 ### Nomor 6
 
