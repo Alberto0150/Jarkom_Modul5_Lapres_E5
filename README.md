@@ -3,6 +3,7 @@ Lapres Modul 5 Jarkom
 
 ### Nama Anggota Kelompok :
 ### 1. Alberto Sanjaya 05111840000150  
+### 2. Angelita Titiandes Br. Silalahi 5111840000088  
 
 ### Soal A
 
@@ -408,4 +409,4 @@ iptables -A LOGGING -j DROP
 ![7](ss/7.JPG)  
 ---
 Kendala yang dialami:  
-Mengalami error pada router Kediri yang mengarah ke Gresik sehingga untuk no 5 tidak dapat dilaksanakan
+tidak ada
