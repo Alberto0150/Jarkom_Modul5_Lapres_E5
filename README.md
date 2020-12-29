@@ -359,8 +359,9 @@ iptables -A INPUT -s 192.168.2.0/24 -m time --timestart 07:01 --timestop 16:59 -
   1. Ubah tanggal dan jam hari ini dengan perintah ```date -s "2020-12-28 16:10:10"```
   2. Cek tanggal sudah benar atau belum dengan perintah ```date```
   
-  
-  
+![5.1](ss/5.1.JPG)  
+![5.1](ss/5.1.JPG)  
+
 ### Nomor 6
 
 SURABAYA disetting sehingga setiap request dari client yang mengakses DNS Server akan didistribusikan secara bergantian pada PROBOLINGGO port 80 dan MADIUN port 80.
